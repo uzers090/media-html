@@ -1,0 +1,6 @@
+/* Add any custom styles not covered by Tailwind here */
+@import "tailwindcss";
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
