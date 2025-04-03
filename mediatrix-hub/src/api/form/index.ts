@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Replace with your backend URL
+const api: AxiosInstance = axios.create({
+  baseURL: 'http://localhost:5000/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -29,6 +29,18 @@ export const saveContactForm = async (data: {
   additionalInfo: string;
 }) => {
   const response = await api.post('/contact', data);
+  return response.data;
+};
+
+export const saveQuoteForm = async (data: {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  orderDetails: string;
+  quoteType: string;
+}) => {
+  const response = await api.post('/quote', data);
   return response.data;
 };
 

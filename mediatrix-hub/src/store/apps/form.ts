@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { saveConsultationForm, saveContactForm } from '../../api/form';
+import { saveConsultationForm, saveContactForm, saveQuoteForm } from '../../api/form';
 
 interface FormState {
   consultationForm: {
@@ -18,17 +18,20 @@ interface FormState {
     leadVolume: string;
     additionalInfo: string;
   };
+  quoteForm: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    orderDetails: string;
+    quoteType: string;
+  };
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }
 
 const initialState: FormState = {
-  consultationForm: {
-    name: '',
-    email: '',
-    phone: '',
-    caseType: '',
-  },
+  consultationForm: { name: '', email: '', phone: '', caseType: '' },
   contactForm: {
     firstName: '',
     lastName: '',
@@ -39,19 +42,26 @@ const initialState: FormState = {
     leadVolume: '',
     additionalInfo: '',
   },
+  quoteForm: {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    orderDetails: '',
+    quoteType: '',
+  },
   status: 'idle',
   error: null,
 };
 
-// Async thunks for API calls
 export const submitConsultationForm = createAsyncThunk(
   'form/submitConsultationForm',
   async (formData: FormState['consultationForm'], { rejectWithValue }) => {
     try {
       const response = await saveConsultationForm(formData);
       return response;
-    } catch (error:unknown) {
-      return rejectWithValue('Failed to submit consultation form');
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data || 'Failed to submit consultation form');
     }
   }
 );
@@ -62,8 +72,20 @@ export const submitContactForm = createAsyncThunk(
     try {
       const response = await saveContactForm(formData);
       return response;
-    } catch (error:unknown) {
-      return rejectWithValue('Failed to submit contact form');
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data || 'Failed to submit contact form');
+    }
+  }
+);
+
+export const submitQuoteForm = createAsyncThunk(
+  'form/submitQuoteForm',
+  async (formData: FormState['quoteForm'], { rejectWithValue }) => {
+    try {
+      const response = await saveQuoteForm(formData);
+      return response;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data || 'Failed to submit quote form');
     }
   }
 );
@@ -78,15 +100,20 @@ const formSlice = createSlice({
     updateContactForm: (state, action: PayloadAction<Partial<FormState['contactForm']>>) => {
       state.contactForm = { ...state.contactForm, ...action.payload };
     },
+    updateQuoteForm: (state, action: PayloadAction<Partial<FormState['quoteForm']>>) => {
+      state.quoteForm = { ...state.quoteForm, ...action.payload };
+    },
     resetConsultationForm: (state) => {
       state.consultationForm = initialState.consultationForm;
     },
     resetContactForm: (state) => {
       state.contactForm = initialState.contactForm;
     },
+    resetQuoteForm: (state) => {
+      state.quoteForm = initialState.quoteForm;
+    },
   },
   extraReducers: (builder) => {
-    // Consultation Form
     builder
       .addCase(submitConsultationForm.pending, (state) => {
         state.status = 'loading';
@@ -94,22 +121,33 @@ const formSlice = createSlice({
       })
       .addCase(submitConsultationForm.fulfilled, (state) => {
         state.status = 'succeeded';
-        state.consultationForm = initialState.consultationForm; // Reset form on success
+        state.consultationForm = initialState.consultationForm;
       })
       .addCase(submitConsultationForm.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload as string;
       })
-      // Contact Form
       .addCase(submitContactForm.pending, (state) => {
         state.status = 'loading';
         state.error = null;
       })
       .addCase(submitContactForm.fulfilled, (state) => {
         state.status = 'succeeded';
-        state.contactForm = initialState.contactForm; // Reset form on success
+        state.contactForm = initialState.contactForm;
       })
       .addCase(submitContactForm.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload as string;
+      })
+      .addCase(submitQuoteForm.pending, (state) => {
+        state.status = 'loading';
+        state.error = null;
+      })
+      .addCase(submitQuoteForm.fulfilled, (state) => {
+        state.status = 'succeeded';
+        state.quoteForm = initialState.quoteForm;
+      })
+      .addCase(submitQuoteForm.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload as string;
       });
@@ -119,8 +157,10 @@ const formSlice = createSlice({
 export const {
   updateConsultationForm,
   updateContactForm,
+  updateQuoteForm,
   resetConsultationForm,
   resetContactForm,
+  resetQuoteForm,
 } = formSlice.actions;
 
 export default formSlice.reducer;

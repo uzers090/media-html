@@ -1,0 +1,26 @@
+{
+    "roundup": {
+      "title": "Roundup Quote",
+      "description": "Get a quote for Roundup litigation, linked to non-Hodgkin's lymphoma and other cancers caused by glyphosate."
+    },
+    "paraquat": {
+      "title": "Paraquat Quote",
+      "description": "Get a quote for Paraquat litigation, involving manufacturers like Syngenta, Chevron, and FMC."
+    },
+    "afff": {
+      "title": "AFFF Quote",
+      "description": "Get a quote for AFFF litigation, involving toxic PFAS 'forever chemicals' in firefighting foam."
+    },
+    "personal-injury": {
+      "title": "Personal Injury Quote",
+      "description": "Get a quote for personal injury claims due to negligence or misconduct."
+    },
+    "depo-provera": {
+      "title": "Depo Provera Quote",
+      "description": "Get a quote for Depo Provera litigation, alleging meningiomas from Pfizer's contraceptive."
+    },
+    "nec-baby-formula": {
+      "title": "NEC Baby Formula Quote",
+      "description": "Get a quote for NEC baby formula litigation, involving manufacturers like Abbott and Mead Johnson."
+    }
+}

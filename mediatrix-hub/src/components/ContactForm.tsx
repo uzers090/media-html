@@ -8,7 +8,7 @@ const ContactForm: React.FC = () => {
   const { contactForm, status, error } = useSelector((state: RootState) => state.form);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     dispatch(updateContactForm({ [name]: value }));
@@ -20,90 +20,108 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-lg mx-auto my-12">
-      <h2 className="text-2xl font-bold text-center">Ready to Grow Your Mass Tort Practice?</h2>
-      <p className="text-center text-gray-400">Fill out the form below to learn more about our mass tort lead generation services.</p>
-      <form onSubmit={handleSubmit} className="mt-4">
-        <label className="block mb-2">First Name*</label>
-        <input
-          type="text"
-          name="firstName"
-          value={contactForm.firstName}
-          onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-          required
-        />
-        <label className="block mt-3 mb-2">Last Name*</label>
-        <input
-          type="text"
-          name="lastName"
-          value={contactForm.lastName}
-          onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-          required
-        />
-        <label className="block mt-3 mb-2">Email Address*</label>
-        <input
-          type="email"
-          name="email"
-          value={contactForm.email}
-          onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-          required
-        />
-        <label className="block mt-3 mb-2">Phone Number*</label>
-        <input
-          type="tel"
-          name="phone"
-          value={contactForm.phone}
-          onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-          required
-        />
-        <label className="block mt-3 mb-2">Law Firm Name*</label>
-        <input
-          type="text"
-          name="lawFirm"
-          value={contactForm.lawFirm}
-          onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-          required
-        />
-        <label className="block mt-3 mb-2">Case Types of Interest*</label>
-        <input
-          type="text"
-          name="caseTypes"
-          value={contactForm.caseTypes}
-          onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-          required
-        />
-        <label className="block mt-3 mb-2">Monthly Lead Volume Needed</label>
-        <input
-          type="text"
-          name="leadVolume"
-          value={contactForm.leadVolume}
-          onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-        />
-        <label className="block mt-3 mb-2">Additional Information</label>
-        <textarea
-          name="additionalInfo"
-          value={contactForm.additionalInfo}
-          onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-          rows={3}
-        ></textarea>
+    <div className="bg-[#1c2331] p-6 rounded-lg shadow-lg w-full max-w-lg mx-auto my-12 border border-[#4299e1]">
+      <h2 className="text-2xl font-bold text-center text-white">Ready to Grow Your Mass Tort Practice?</h2>
+      <p className="text-center text-gray-400 mt-2">Fill out the form below to learn more about our mass tort lead generation services.</p>
+      <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+        <div>
+          <label className="block mb-2">First Name*</label>
+          <input
+            type="text"
+            name="firstName"
+            value={contactForm.firstName}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-[#2d3748] border border-[#4a5568] text-gray-400"
+            required
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Last Name*</label>
+          <input
+            type="text"
+            name="lastName"
+            value={contactForm.lastName}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-[#2d3748] border border-[#4a5568] text-gray-400"
+            required
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Email Address*</label>
+          <input
+            type="email"
+            name="email"
+            value={contactForm.email}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-[#2d3748] border border-[#4a5568] text-gray-400"
+            required
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Phone Number*</label>
+          <input
+            type="tel"
+            name="phone"
+            value={contactForm.phone}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-[#2d3748] border border-[#4a5568] text-gray-400"
+            required
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Law Firm Name</label>
+          <input
+            type="text"
+            name="lawFirm"
+            value={contactForm.lawFirm}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-[#2d3748] border border-[#4a5568] text-gray-400"
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Case Types of Interest</label>
+          <input
+            type="text"
+            name="caseTypes"
+            value={contactForm.caseTypes}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-[#2d3748] border border-[#4a5568] text-gray-400"
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Desired Lead Volume</label>
+          <select
+            name="leadVolume"
+            value={contactForm.leadVolume}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-[#2d3748] border border-[#4a5568] text-gray-400"
+          >
+            <option value="">Select lead volume</option>
+            <option value="1-10">1-10 leads/month</option>
+            <option value="11-50">11-50 leads/month</option>
+            <option value="51+">51+ leads/month</option>
+          </select>
+        </div>
+        <div>
+          <label className="block mb-2">Additional Information</label>
+          <textarea
+            name="additionalInfo"
+            value={contactForm.additionalInfo}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-[#2d3748] border border-[#4a5568] text-gray-400"
+            rows={3}
+          />
+        </div>
         <button
           type="submit"
-          className="w-full mt-4 p-3 bg-black rounded-lg text-white hover:bg-gray-700"
+          className="w-full bg-black text-white p-3 rounded hover:bg-[#2d3748] transition-colors"
           disabled={status === 'loading'}
         >
           {status === 'loading' ? 'Submitting...' : 'Submit'}
         </button>
       </form>
-      {status === 'succeeded' && <p className="text-green-500 mt-2">Form submitted successfully!</p>}
-      {error && <p className="text-red-500 mt-2">{error}</p>}
+      {status === 'succeeded' && <p className="text-green-500 mt-4 text-center">Contact form submitted successfully!</p>}
+      {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
     </div>
   );
 };
