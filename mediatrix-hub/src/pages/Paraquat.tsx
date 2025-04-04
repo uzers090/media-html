@@ -5,11 +5,73 @@ import Footer from '../components/Footer';
 const Paraquat: React.FC = () => (
   <div className="bg-gray-900 text-white min-h-screen">
     <Header />
+    <div className="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between">
+      <div className="md:w-1/2">
+        <h1 className="text-4xl font-bold">
+          MediaTrix <span className="text-blue-400">Hub</span>
+        </h1>
+        <p className="mt-4 text-gray-300">
+          We connect attorneys with pre-qualified plaintiffs for mass tort cases. Our exclusive leads are verification-screened to maximize your ROI.
+        </p>
+      </div>
+      <div className="md:w-1/2 mt-10 md:mt-0 bg-[#1c2331] p-8 rounded-lg shadow-lg border border-blue-500 flex flex-col items-center">
+        <h2 className="text-3xl font-bold mb-4">Paraquat</h2>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq2Of-kZTQfUglIA_2BC_mCTureDDh4R5DMQ&s"
+          alt="Paraquat"
+          className="w-full h-50 object-cover rounded-t-lg"
+        />
+      </div>
+    </div>
+
     <div className="container mx-auto px-6 py-12 text-center">
       <h2 className="text-3xl font-bold">Paraquat Information</h2>
-      <p className="mt-4 text-gray-400">
-        Paraquat mass tort litigation involves manufacturers like Syngenta, Chevron, and FMC. Learn more about how we can help.
-      </p>
+      <div className="mt-8 grid place-items-center w-full">
+      <div className="bg-[#1c2331] p-6 rounded-lg shadow-lg border border-[#4299e1] text-left container mx-auto w-full m-12">
+          <p className="text-gray-400 mt-2">
+            The Paraquat mass tort litigation represents one of the most significant legal battles in recent history, involving manufacturers like Syngenta, Chevron, and FMC. This litigation centers around allegations that Paraquat, a highly toxic herbicide used for weed and grass control, causes Parkinson's disease and other serious health conditions. Despite being banned in over 30 countries worldwide, Paraquat remains legal in the United States under strict regulations, with mounting evidence linking exposure to devastating neurological damage.
+            <br /><b><i>Current Litigation Status</i></b>
+            <br />As of March 2025, over 4,000 Paraquat lawsuits have been consolidated into multidistrict litigation (MDL) in the U.S. District Court for the Southern District of Illinois. The litigation continues to gain momentum with new cases being filed monthly. Recent developments have been devastating for manufacturers, with a Missouri jury awarding a staggering $495 million verdict against Syngenta in January 2025 ($90 million in compensatory damages and $400 million in punitive damages). This followed a $60 million verdict against Chevron in December 2024.
+            <br />The first bellwether trial in the federal MDL is scheduled to begin on May 5, 2025, which will be a crucial test case that may influence future settlements.
+            <br /><b><i>Scientific Evidence and Health Concerns</i></b>
+            <br />Scientific research has consistently demonstrated that exposure to Paraquat significantly increases the risk of developing Parkinson's disease. The mortality rate for individuals diagnosed with Parkinson's is estimated to be around 40%, making it one of the leading causes of overall mortality in the U.S.
+            <br />For individuals who survive Parkinson's disease, approximately 50% will develop long-term health complications, including:
+            <br />Beyond Parkinson's disease, Paraquat exposure has been linked to:
+            <br />Kidney damage and end-stage renal disease (ESRD)
+            <br />Lung damage and respiratory issues
+            <br />Liver toxicity
+            <br />Immune system complications
+            <br />Multiple organ failure in cases of acute exposure
+            <br /><b><i>Legal Basis for Claims</i></b>
+            <br />The litigation centers on allegations that manufacturers knew about the dangers of Paraquat but failed to warn users or provide safer alternatives. Plaintiffs argue that manufacturers:
+            <br />Failed to warn users about the increased risk of Parkinson's disease
+            <br />Provided no directions on how to avoid exposure
+            <br />Concealed the defective condition of their products
+            <br />Prioritized profits over consumer safety
+            <br />These cases generally proceed under legal theories including negligence, strict liability (design defect and failure to warn), breach of implied warranty, public nuisance, and violation of consumer fraud and deceptive business practices acts.
+            <br /><b><i>Compensation for Victims</i></b>
+            <br />Individuals diagnosed with Parkinson's disease or other health conditions after Paraquat exposure may be entitled to substantial compensation, including:
+            <br />Medical expenses and treatment costs (past, current, and future)
+            <br />Lost wages and loss of future earning capacity
+            <br />Pain and suffering
+            <br />Loss of consortium (effects on relationships)
+            <br />Punitive damages in cases of gross negligence
+            <br /><b><i>Who Qualifies for a Paraquat Lawsuit</i></b>
+            <br />You may qualify to file a Paraquat lawsuit if you were exposed to the herbicide and subsequently developed Parkinson's disease. Those most likely to qualify include:
+            <br />Agricultural workers, farmers, and farmworkers
+            <br />Chemical mixers, tank fillers, and herbicide applicators
+            <br />Licensed Paraquat applicators
+            <br />Landscapers and groundskeepers
+            <br />People who lived near farms or areas where Paraquat was regularly sprayed
+            <br />Those exposed to Paraquat products like Gramoxone, Helmquat, Firestorm, Parazone, and others
+            <br /><b><i>Time is Limited to File Your Claim</i></b>
+            <br />The statute of limitations for filing a Paraquat lawsuit varies by state, ranging from 1 to 6 years, with most states setting a 2-3 year limit from the date of Parkinson's diagnosis. Failing to file within the specified timeframe may bar you from receiving any compensation from liable manufacturers.
+            <br />Given these varying deadlines, it's crucial to consult with an experienced attorney as soon as possible after diagnosis to determine the applicable statute of limitations in your state and preserve your right to file a claim.
+            <br />Our experienced mass tort attorneys can evaluate your case through a free, no-obligation consultation to determine if you qualify for compensation in this ongoing litigation.
+            <br />Don't face this fight alone. Contact us today to learn how we can help you seek justice and the compensation you deserve.
+          </p>
+        </div>
+      </div>
     </div>
     <Footer />
   </div>

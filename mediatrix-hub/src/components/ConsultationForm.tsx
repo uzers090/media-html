@@ -17,6 +17,7 @@ const ConsultationForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(submitConsultationForm(consultationForm));
+    
   };
 
   return (

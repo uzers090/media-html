@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 const api: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'http://localhost:8000/api/v1/leads',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -14,6 +14,7 @@ export const saveConsultationForm = async (data: {
   phone: string;
   caseType: string;
 }) => {
+  console.log("Saving consultation form data:", data);
   const response = await api.post('/consultation', data);
   return response.data;
 };

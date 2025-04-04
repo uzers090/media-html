@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 const Header: React.FC = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
-  const isRoundup = location.pathname === '/roundup';
 
   return (
     <header className="bg-[#0a0f1c] p-4 shadow-md">
@@ -25,15 +24,6 @@ const Header: React.FC = () => {
               } hover:bg-blue-600 transition-colors`}
             >
               Home
-            </button>
-          </Link>
-          <Link to="/roundup">
-            <button
-              className={`px-4 py-2 rounded-lg text-white ${
-                isRoundup ? 'bg-blue-500' : 'bg-black'
-              } hover:bg-blue-600 transition-colors`}
-            >
-              Roundup
             </button>
           </Link>
         </nav>

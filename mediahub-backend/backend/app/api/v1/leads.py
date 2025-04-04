@@ -1,0 +1,1 @@
+from backend.app.modules.lead.controller import router as router
